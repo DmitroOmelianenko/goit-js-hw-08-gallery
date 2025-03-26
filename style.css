@@ -1,0 +1,47 @@
+body {
+    background-color: green;
+    font-family: "Winky Sans";
+}
+
+@keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+img {
+    max-width: 500px;
+    height: 300px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(1);
+    animation: spin 4s linear;
+    
+  
+}
+
+
+img:hover {
+    box-shadow: -1px -10px 136px 17px rgba(255,255,0,1);
+    transform: scale(1.05); /* Збільшення зображення */
+}
+
+.galery__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    list-style: none;
+    justify-content: center;
+}
+
+.galery-title {
+    color: yellow;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 60px;
+    font-size: 50px;
+}
+
