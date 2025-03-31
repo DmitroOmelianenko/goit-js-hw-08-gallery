@@ -60,6 +60,7 @@ listofImages.innerHTML = allImages.join("");
 const listElement = document.querySelector(".galery__list");
 const backdrop = document.querySelector(".backdrop");
 const closeButton = document.querySelector(".modal__button");
+const modal = document.querySelector(".modal")
 
 listElement.addEventListener("click", (event) => {
     if (event.target.nodeName === "IMG") {
@@ -70,6 +71,6 @@ listElement.addEventListener("click", (event) => {
     }
 });
 
-closeButton.addEventListener("click", () => {
+modal.addEventListener("click", () => {
     backdrop.classList.add("is-hidden");
 });
