@@ -49,16 +49,27 @@ const images = [
 const listofImages = document.querySelector(".galery__list");
 
 const allImages = images.map(image => {
-    const elementofLi = `
-        <li class="galery__item">
+    return `
+        <li data-info="${image.original}" class="galery__item">
             <img class="galery__img" src="${image.original}" alt="${image.description}">
-        </li>
-    `;
-    return elementofLi;
+        </li>`;
 });
 
-console.log(allImages);
-const inHtml = allImages.join("");
-console.log(inHtml);
+listofImages.innerHTML = allImages.join("");
 
-listofImages.innerHTML = inHtml;
+const listElement = document.querySelector(".galery__list");
+const backdrop = document.querySelector(".backdrop");
+const closeButton = document.querySelector(".modal__button");
+
+listElement.addEventListener("click", (event) => {
+    if (event.target.nodeName === "IMG") {
+        backdrop.classList.remove("is-hidden");
+        const itemImg = event.target.parentElement.dataset.info;
+        const itemAlt = event.target.alt;  
+        document.querySelector(".modal").innerHTML = `<img src="${itemImg}" alt="${itemAlt}">`;
+    }
+});
+
+closeButton.addEventListener("click", () => {
+    backdrop.classList.add("is-hidden");
+});
